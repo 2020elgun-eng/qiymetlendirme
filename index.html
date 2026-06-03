@@ -1,708 +1,208 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daxili Nəzarət Şöbəsi — Qiymətləndirmə</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f4;color:#1a1a1a;font-size:14px;line-height:1.6}
-.container{max-width:780px;margin:0 auto;padding:1.5rem 1rem}
-.topbar{display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:1px solid #e5e5e5;padding:.875rem 1.5rem;position:sticky;top:0;z-index:100}
-.topbar-title{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px}
-.topbar-title span{color:#534AB7}
-.topbar-sub{font-weight:400;color:#9ca3af;font-size:12px}
-.nav{display:flex;gap:6px}
-.card{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:1.25rem;margin-bottom:12px}
-.badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:6px;font-weight:500;white-space:nowrap}
-.b-mudir{background:#EEEDFE;color:#3C3489}
-.b-muavin{background:#dbeafe;color:#1e40af}
-.b-sektor{background:#fef3c7;color:#92400e}
-.b-iscii{background:#f3f4f6;color:#374151}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid #d1d5db;border-radius:8px;background:#fff;color:#374151;font-size:13px;cursor:pointer;font-family:inherit;transition:all .15s}
-.btn:hover{background:#f9fafb}
-.btn-primary{background:#534AB7;color:#fff;border-color:#534AB7}
-.btn-primary:hover{background:#3C3489;border-color:#3C3489}
-.btn-sm{padding:5px 10px;font-size:12px}
-.btn-danger{color:#dc2626;border-color:#fca5a5}
-.btn-danger:hover{background:#fef2f2}
-.inp{width:100%;padding:8px 12px;border:1px solid #d1d5db;border-radius:8px;font-size:13px;font-family:inherit;background:#fff;color:#1a1a1a;transition:border-color .15s,box-shadow .15s}
-.inp:focus{outline:none;border-color:#534AB7;box-shadow:0 0 0 3px rgba(83,74,183,.1)}
-label{font-size:12px;color:#6b7280;display:block;margin-bottom:3px}
-.tab-bar{display:flex;border-bottom:1px solid #e5e5e5;margin-bottom:1.25rem;gap:0;overflow-x:auto}
-.tab{padding:8px 14px;font-size:13px;cursor:pointer;border-bottom:2px solid transparent;color:#6b7280;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit;white-space:nowrap;transition:color .15s}
-.tab:hover{color:#374151}
-.tab.active{color:#534AB7;border-bottom-color:#534AB7;font-weight:500}
-hr.div{border:none;border-top:1px solid #e5e5e5;margin:.75rem 0}
-.alert-info{background:#EEEDFE;color:#3C3489;padding:10px 14px;border-radius:8px;font-size:12px;margin-bottom:1rem}
-.alert-ok{background:#dcfce7;color:#166534;padding:12px 16px;border-radius:8px;font-size:13px}
-.alert-warn{background:#fef3c7;color:#92400e;padding:10px 14px;border-radius:8px;font-size:12px;margin-bottom:1rem}
-.alert-err{background:#fef2f2;color:#dc2626;padding:10px 14px;border-radius:8px;font-size:12px;margin-bottom:1rem}
-.progress-wrap{height:6px;background:#f3f4f6;border-radius:3px;overflow:hidden}
-.progress-fill{height:100%;background:#534AB7;border-radius:3px;transition:width .4s ease}
-.stat-card{background:#f9fafb;border-radius:10px;padding:.875rem;text-align:center;border:1px solid #e5e5e5}
-.stat-num{font-size:22px;font-weight:700;color:#1a1a1a}
-.stat-label{font-size:11px;color:#6b7280;margin-top:2px}
-.star{font-size:22px;cursor:pointer;color:#d1d5db;user-select:none;line-height:1;transition:color .1s,transform .1s}
-.star.on{color:#f59e0b}
-.star:hover{color:#f59e0b;transform:scale(1.15)}
-.crit-block{border:1px solid #e5e5e5;border-radius:8px;padding:11px;margin-bottom:8px}
-.page{display:none}
-.page.active{display:block}
-.sec-hdr{font-size:10px;font-weight:600;color:#534AB7;text-transform:uppercase;letter-spacing:.7px;margin:16px 0 8px;padding-bottom:4px;border-bottom:1px solid #e5e5e5}
-.avatar{width:36px;height:36px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#3C3489;flex-shrink:0}
-.worker-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f3f4f6}
-.worker-row:last-child{border-bottom:none}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:8px;align-items:end}
-.voter-btn{background:#fff;border:1.5px solid #e5e5e5;border-radius:12px;padding:14px;cursor:pointer;text-align:left;transition:border-color .15s,box-shadow .15s,background .15s;width:100%}
-.voter-btn:hover{border-color:#534AB7;box-shadow:0 0 0 3px rgba(83,74,183,.1);background:#fafafa}
-.voter-btn.done{opacity:.6;background:#f9fafb}
-.voter-btn.done:hover{border-color:#16a34a;box-shadow:0 0 0 3px rgba(22,163,74,.1)}
-.group-label,.crit-group-label{font-size:10px;font-weight:600;color:#534AB7;text-transform:uppercase;letter-spacing:.5px;margin:14px 0 8px}
-
-/* Modal overlay */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;display:flex;align-items:center;justify-content:center;padding:1rem}
-.modal{background:#fff;border-radius:16px;padding:2rem;width:100%;max-width:380px;box-shadow:0 20px 60px rgba(0,0,0,.2)}
-.modal h3{font-size:16px;font-weight:600;margin-bottom:6px}
-.modal p{font-size:13px;color:#6b7280;margin-bottom:1.25rem}
-.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:1.25rem}
-
-/* Voter page top info */
-.voter-info-bar{background:#EEEDFE;border-radius:10px;padding:10px 14px;margin-bottom:1.25rem;display:flex;align-items:center;gap:10px}
-
-/* Copy link btn */
-.link-row{display:flex;align-items:center;gap:6px}
-.copy-badge{font-size:10px;color:#16a34a;display:none}
-
-/* Lock icon for protected pages */
-.lock-icon{display:inline-flex;align-items:center;gap:5px}
-
-@media(max-width:600px){
-  .grid-4{grid-template-columns:repeat(2,1fr)}
-  .grid-3{grid-template-columns:1fr 1fr}
-  .grid-3 .btn-primary{grid-column:1/-1}
-  .topbar{padding:.75rem 1rem}
-  .topbar-sub{display:none}
-  .nav .btn-sm{padding:5px 8px;font-size:11px}
-  .container{padding:1rem .75rem}
-  .modal{padding:1.5rem}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daxili Nəzarət Şöbəsi — Qiymətləndirmə</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- ══════════════════ TOP BAR ══════════════════ -->
 <div class="topbar">
   <div class="topbar-title">
-    <svg width="18" height="18" fill="none" stroke="#534AB7" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-    <span>Daxili Nəzarət Şöbəsi</span>
+    <svg width="18" height="18" fill="none" stroke="#534AB7" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    </svg>
+    <span class="brand">Daxili Nəzarət Şöbəsi</span>
     <span class="topbar-sub">— anonim qiymətləndirmə</span>
   </div>
   <div class="nav">
-    <button class="btn btn-sm lock-icon" onclick="adminAuth()">🔒 Admin</button>
-    <button class="btn btn-sm" onclick="goPage('vote-select')">✓ Qiymətləndir</button>
+    <button class="btn btn-sm" id="admin-btn">🔒 Admin</button>
   </div>
 </div>
 
 <div class="container">
 
-<!-- LANDING PAGE (default) -->
-<div id="page-landing" class="page active">
-  <div style="text-align:center;padding:3rem 1rem">
-    <div style="width:64px;height:64px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem">
-      <svg width="28" height="28" fill="none" stroke="#534AB7" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+  <!-- ══ LOADING ══ -->
+  <div id="page-loading" class="page active" style="text-align:center;padding:4rem 1rem">
+    <div class="spinner"></div>
+    <p id="loading-msg" style="color:#6b7280;font-size:13px">Yüklənir...</p>
+  </div>
+
+  <!-- ══ ERROR ══ -->
+  <div id="page-error" class="page" style="padding:3rem 1rem;text-align:center">
+    <div style="font-size:40px;margin-bottom:1rem">⚠️</div>
+    <h2 style="font-size:16px;font-weight:600;margin-bottom:8px">Xəta</h2>
+    <p id="error-msg" style="font-size:13px;color:#6b7280;max-width:400px;margin:0 auto"></p>
+  </div>
+
+  <!-- ══ LANDING ══ -->
+  <div id="page-landing" class="page">
+    <div style="text-align:center;padding:3rem 1rem">
+      <div style="width:64px;height:64px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem">
+        <svg width="28" height="28" fill="none" stroke="#534AB7" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <h1 style="font-size:20px;font-weight:700;margin-bottom:8px">Anonim Qiymətləndirmə</h1>
+      <p style="font-size:14px;color:#6b7280;max-width:420px;margin:0 auto 2rem">
+        Bu səhifəyə giriş yalnız size göndərilən fərdi link vasitəsilə mümkündür.<br>
+        Administratordan linkini tələb et.
+      </p>
     </div>
-    <h1 style="font-size:20px;font-weight:700;margin-bottom:8px">Anonim Qiymətləndirmə</h1>
-    <p style="font-size:14px;color:#6b7280;max-width:400px;margin:0 auto 2rem">Daxili Nəzarət Şöbəsi əməkdaşlarının 360° peer qiymətləndirməsi. Qiymətlər tamamilə anonimdir.</p>
-    <button class="btn btn-primary" style="font-size:14px;padding:10px 24px" onclick="goPage('vote-select')">Qiymətləndirməyə başla →</button>
-  </div>
-</div>
-
-<!-- ADMIN PAGE -->
-<div id="page-admin" class="page">
-  <div class="tab-bar">
-    <button class="tab active" id="tab-workers" onclick="aTab('workers')">İşçilər</button>
-    <button class="tab" id="tab-criteria" onclick="aTab('criteria')">Meyarlar</button>
-    <button class="tab" id="tab-weights" onclick="aTab('weights')">Əmsallar</button>
-    <button class="tab" id="tab-links" onclick="aTab('links')">Linklər</button>
-    <button class="tab" id="tab-results" onclick="aTab('results')">📊 Nəticələr</button>
   </div>
 
-  <div id="atab-workers" style="display:block">
-    <div class="card">
-      <div class="grid-3">
-        <div><label>Ad / İnisiallar</label><input class="inp" id="new-name" placeholder="AB" maxlength="4"></div>
-        <div><label>Vəzifə</label>
-          <select class="inp" id="new-role">
-            <option value="mudir">Şöbə müdiri</option>
-            <option value="muavin">Müdir müavini</option>
-            <option value="sektor">Sektor müdiri</option>
-            <option value="bash">Baş məsləhətçi</option>
-            <option value="boyuk">Böyük məsləhətçi</option>
-            <option value="aparici">Aparıcı məsləhətçi</option>
-            <option value="meslehchi">Məsləhətçi</option>
-            <option value="iscii">Digər icraçı</option>
-          </select>
+  <!-- ══ VOTE ══ -->
+  <div id="page-vote" class="page">
+    <div class="voter-info-bar">
+      <div class="avatar" id="v-avatar" style="background:#534AB7;color:#fff;font-size:13px"></div>
+      <div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span id="v-name" style="font-weight:600;font-size:15px"></span>
+          <span id="v-role" class="badge"></span>
         </div>
-        <div><label>Sektor</label>
-          <select class="inp" id="new-sector">
-            <option value="rehberlik">Rəhbərlik</option>
-            <option value="xidmeti">Xidməti araşdırma</option>
-            <option value="riskler">Risklərin idarəsi</option>
-            <option value="audit">Daxili audit</option>
-          </select>
-        </div>
-        <button class="btn btn-primary" onclick="addWorker()">+ Əlavə et</button>
+        <span id="v-sector" style="font-size:11px;color:#6b7280"></span>
       </div>
     </div>
-    <div id="worker-list"></div>
+    <p style="font-size:12px;color:#6b7280;margin-bottom:1.5rem">
+      Hər əməkdaşı bütün meyarlar üzrə <strong>1–10</strong> balda qiymətləndirin. Qiymətlər tamamilə anonimdir.
+    </p>
+    <div id="vote-form"></div>
+    <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:1.5rem;padding-top:1rem;border-top:1px solid #e5e5e5">
+      <button class="btn btn-primary" id="submit-btn">Göndər →</button>
+    </div>
   </div>
 
-  <div id="atab-criteria" style="display:none">
-    <div class="alert-info">Vəzifə qrupuna görə tətbiq olunan meyarlar aşağıda göstərilir.</div>
+  <!-- ══ DONE ══ -->
+  <div id="page-done" class="page" style="padding:3rem 1rem;text-align:center">
+    <div style="font-size:48px;margin-bottom:1rem">✅</div>
+    <h2 style="font-size:18px;font-weight:600;margin-bottom:8px">Qiymətlər qəbul edildi</h2>
+    <p style="font-size:13px;color:#6b7280;max-width:380px;margin:0 auto">
+      Bütün qiymətlər uğurla göndərildi. İştirakınız üçün təşəkkür edirik. Bu pəncərəni bağlaya bilərsiniz.
+    </p>
+  </div>
+
+  <!-- ══ ADMIN LOGIN ══ -->
+  <div id="page-admin-login" class="page" style="max-width:380px;margin:3rem auto">
+    <div class="card">
+      <h2 style="font-size:16px;font-weight:600;margin-bottom:6px">🔒 Admin girişi</h2>
+      <p style="font-size:13px;color:#6b7280;margin-bottom:1.25rem">Firebase hesabınızla daxil olun</p>
+      <div id="login-err" class="alert alert-err" style="display:none"></div>
+      <div style="margin-bottom:10px">
+        <label>E-poçt</label>
+        <input class="inp" id="login-email" type="email" placeholder="admin@example.com" autocomplete="email">
+      </div>
+      <div style="margin-bottom:16px">
+        <label>Şifrə</label>
+        <input class="inp" id="login-pass" type="password" placeholder="••••••••" autocomplete="current-password">
+      </div>
+      <button class="btn btn-primary" id="login-btn" style="width:100%">Daxil ol →</button>
+    </div>
+  </div>
+
+  <!-- ══ ADMIN PANEL ══ -->
+  <div id="page-admin" class="page">
     <div class="tab-bar">
-      <button class="tab active" id="ctab-umumi" onclick="cTab('umumi')">Ümumi (hamıya)</button>
-      <button class="tab" id="ctab-muavin" onclick="cTab('muavin')">Müdir müavini</button>
-      <button class="tab" id="ctab-sektor" onclick="cTab('sektor')">Sektor müdiri</button>
+      <button class="tab active" data-tab="workers">İşçilər</button>
+      <button class="tab" data-tab="tokens">Linklər</button>
+      <button class="tab" data-tab="criteria">Meyarlar</button>
+      <button class="tab" data-tab="weights">Əmsallar</button>
+      <button class="tab" data-tab="results">📊 Nəticələr</button>
     </div>
-    <div id="criteria-content"></div>
-  </div>
 
-  <div id="atab-weights" style="display:none">
-    <div class="card">
-      <p style="font-size:12px;color:#6b7280;margin-bottom:1rem">10 ballıq şkala üzrə çəki əmsalları — qiymət verənin vəzifəsinə görə</p>
-      <div id="weight-rows" style="display:flex;flex-direction:column;gap:12px"></div>
-      <hr class="div">
-      <p style="font-size:11px;color:#6b7280">Nümunə: şöbə müdiri 8 bal versə → 8 × 3 = <strong>24 çəkili bal</strong></p>
-    </div>
-  </div>
-
-  <div id="atab-links" style="display:none">
-    <div class="alert-info">Hər işçiyə öz linkini göndərin. Link açıldıqda onun adı avtomatik seçilir.</div>
-    <div id="link-list"></div>
-  </div>
-
-  <div id="atab-results" style="display:none">
-    <div id="admin-results-content"></div>
-  </div>
-</div>
-
-<!-- VOTER SELECT PAGE -->
-<div id="page-vote-select" class="page">
-  <h2 style="font-size:16px;font-weight:600;margin-bottom:4px">Siz kimsiniz?</h2>
-  <p style="font-size:13px;color:#6b7280;margin-bottom:1.25rem">Adınızı seçin. Qiymətlər tamamilə anonim saxlanılacaq.</p>
-  <div id="voter-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:8px"></div>
-</div>
-
-<!-- VOTE PAGE -->
-<div id="page-vote" class="page">
-  <div class="voter-info-bar">
-    <div class="avatar" id="v-avatar" style="background:#534AB7;color:#fff"></div>
-    <div>
-      <div style="display:flex;align-items:center;gap:8px">
-        <span id="v-name" style="font-weight:600;font-size:15px"></span>
-        <span id="v-role" class="badge"></span>
+    <!-- Workers tab -->
+    <div id="atab-workers">
+      <div class="card">
+        <div class="grid-3">
+          <div><label>Ad / İnisiallar</label><input class="inp" id="new-name" placeholder="AB" maxlength="4"></div>
+          <div><label>Vəzifə</label>
+            <select class="inp" id="new-role">
+              <option value="mudir">Şöbə müdiri</option>
+              <option value="muavin">Müdir müavini</option>
+              <option value="sektor">Sektor müdiri</option>
+              <option value="bash">Baş məsləhətçi</option>
+              <option value="boyuk">Böyük məsləhətçi</option>
+              <option value="aparici">Aparıcı məsləhətçi</option>
+              <option value="meslehchi">Məsləhətçi</option>
+              <option value="iscii">Digər icraçı</option>
+            </select>
+          </div>
+          <div><label>Sektor</label>
+            <select class="inp" id="new-sector">
+              <option value="rehberlik">Rəhbərlik</option>
+              <option value="xidmeti">Xidməti araşdırma</option>
+              <option value="riskler">Risklərin idarəsi</option>
+              <option value="audit">Daxili audit</option>
+            </select>
+          </div>
+          <button class="btn btn-primary span-full" id="add-worker-btn">+ Əlavə et</button>
+        </div>
       </div>
-      <span id="v-sector" style="font-size:11px;color:#6b7280"></span>
+      <div id="worker-list"></div>
+    </div>
+
+    <!-- Tokens tab -->
+    <div id="atab-tokens" style="display:none">
+      <div class="alert alert-info">
+        Hər işçi üçün unikal link yaradın. Linki həmin işçiyə göndərin — link açıldıqda forma avtomatik onun adına açılır. Hər link yalnız <strong>bir dəfə</strong> istifadə oluna bilər.
+      </div>
+      <div style="display:flex;gap:8px;margin-bottom:1.25rem;flex-wrap:wrap">
+        <button class="btn btn-primary" id="gen-tokens-btn">🔗 Tokenlər yarat / yenilə</button>
+        <button class="btn" id="refresh-tokens-btn">↺ Yenilə</button>
+      </div>
+      <div id="token-list"></div>
+    </div>
+
+    <!-- Criteria tab -->
+    <div id="atab-criteria" style="display:none">
+      <div class="alert alert-info">Vəzifə qrupuna görə tətbiq olunan meyarlar.</div>
+      <div class="tab-bar">
+        <button class="tab active" data-ctab="umumi">Ümumi (hamıya)</button>
+        <button class="tab" data-ctab="muavin">Müdir müavini</button>
+        <button class="tab" data-ctab="sektor">Sektor müdiri</button>
+      </div>
+      <div id="criteria-content"></div>
+    </div>
+
+    <!-- Weights tab -->
+    <div id="atab-weights" style="display:none">
+      <div class="card">
+        <p style="font-size:12px;color:#6b7280;margin-bottom:1rem">
+          Yekun bal: <code>Σ(orta_bal × əmsal) / Σ(əmsal)</code>
+        </p>
+        <div id="weight-rows" style="display:flex;flex-direction:column;gap:12px"></div>
+        <hr class="div">
+        <p style="font-size:11px;color:#6b7280">
+          Nümunə: şöbə müdiri 8 bal versə → əmsal 3 ilə çəkiləndirilir.
+        </p>
+      </div>
+    </div>
+
+    <!-- Results tab -->
+    <div id="atab-results" style="display:none">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:8px">
+        <div>
+          <h2 style="font-size:16px;font-weight:600">Ümumiləşdirilmiş nəticələr</h2>
+          <p style="font-size:12px;color:#6b7280;margin-top:2px" id="results-progress"></p>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-sm" id="refresh-results-btn">↺ Yenilə</button>
+          <button class="btn btn-sm btn-danger" id="clear-votes-btn">↺ Sıfırla</button>
+        </div>
+      </div>
+      <div class="grid-4" id="res-stats" style="margin-bottom:1.5rem"></div>
+      <div id="results-list"></div>
+    </div>
+
+    <hr class="div" style="margin-top:2rem">
+    <div style="display:flex;justify-content:flex-end">
+      <button class="btn btn-sm btn-danger" id="logout-btn">Çıxış</button>
     </div>
   </div>
-  <p style="font-size:12px;color:#6b7280;margin-bottom:1.5rem">Hər əməkdaşı bütün meyarlar üzrə 1–10 balda qiymətləndirin</p>
-  <div id="vote-form"></div>
-  <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:1.5rem;padding-top:1rem;border-top:1px solid #e5e5e5">
-    <button class="btn btn-sm" onclick="goPage('vote-select')">← Geri</button>
-    <button class="btn btn-primary" onclick="submitVotes()">Göndər →</button>
-  </div>
-</div>
 
 </div><!-- /container -->
 
-<!-- ADMIN AUTH MODAL -->
-<div id="modal-auth" class="modal-overlay" style="display:none" onclick="closeAuthModal(event)">
-  <div class="modal">
-    <h3>🔒 Admin girişi</h3>
-    <p>Davam etmək üçün admin şifrəsini daxil edin</p>
-    <div id="auth-err" class="alert-err" style="display:none">Şifrə yanlışdır</div>
-    <label>Şifrə</label>
-    <input class="inp" id="admin-pass" type="password" placeholder="••••••" onkeydown="if(event.key==='Enter')checkAdminPass()">
-    <div class="modal-actions">
-      <button class="btn" onclick="closeAuthModal()">Ləğv et</button>
-      <button class="btn btn-primary" onclick="checkAdminPass()">Giriş →</button>
-    </div>
-  </div>
-</div>
-
-<script>
-// ─── KONFIQURASIYA ───────────────────────────────────────────────
-const ADMIN_PASS = 'admin2025'; // Şifrəni buradan dəyişin
-const BASE_URL   = location.origin + location.pathname;
-// ────────────────────────────────────────────────────────────────
-
-const ROLE_LABEL={mudir:'Şöbə müdiri',muavin:'Müdir müavini',sektor:'Sektor müdiri',bash:'Baş məsləhətçi',boyuk:'Böyük məsləhətçi',aparici:'Aparıcı məsləhətçi',meslehchi:'Məsləhətçi',iscii:'Digər icraçı'};
-const ROLE_BADGE={mudir:'b-mudir',muavin:'b-muavin',sektor:'b-sektor',bash:'b-iscii',boyuk:'b-iscii',aparici:'b-iscii',meslehchi:'b-iscii',iscii:'b-iscii'};
-const SECTOR_LABEL={rehberlik:'Rəhbərlik',xidmeti:'Xidməti araşdırma sektoru',riskler:'Risklərin idarə olunması sektoru',audit:'Daxili audit sektoru'};
-const SECTOR_ORDER=['rehberlik','xidmeti','riskler','audit'];
-const WEIGHTS={mudir:3,muavin:2,sektor:1.5,bash:1,boyuk:1,aparici:1,meslehchi:1,iscii:1};
-
-const CRITERIA_UMUMI=[
-  {id:'c1',name:'İş yükü və tapşırıqların icra səviyyəsi',desc:'Verilən tapşırıqların vaxtında, tam və düzgün şəkildə yerinə yetirilməsi'},
-  {id:'c2',name:'İşin keyfiyyəti və peşəkarlıq',desc:'Çıxarılan sənəd, hesabat və ya nəticənin keyfiyyəti; sahə üzrə peşəkarlıq göstəriciləri'},
-  {id:'c3',name:'Məsuliyyətlilik və icra intizamı',desc:'Öhdəliklərə sadiqlik, müstəqil iş aparma, son tarixlərə riayət etmə'},
-  {id:'c4',name:'Təhlil, problem həlli və təşəbbüskarlıq',desc:'Problemlərə yaradıcı yanaşma, müstəqil qərar qəbulu, yeni ideyalar irəli sürə bilmə'},
-  {id:'c5',name:'Komandada işləmə və kommunikasiya',desc:'Həmkarlarla əməkdaşlıq, məlumat paylaşımı, konstruktiv ünsiyyət qurmaq bacarığı'}
-];
-const CRITERIA_MUAVIN=[
-  {id:'m1',name:'Kurasiyasında olan sektorun koordinasiyası',desc:'Şöbə daxilində kurasiyadakı sektorun işlərinin koordinasiyası, sektorlararası əlaqələndirmə'},
-  {id:'m2',name:'Rəhbərlik üçün qərar variantları hazırlamaq',desc:'Mürəkkəb məsələlər üzrə analitik yanaşma, müdirə əsaslandırılmış qərar variantları'},
-  {id:'m3',name:'Rəhbəri əvəz etmə qabiliyyəti',desc:'Rəhbərin olmadığı hallarda şöbə fəaliyyətini idarə etmək, qərar qəbul etmək'},
-  {id:'m4',name:'Riskləri əvvəlcədən görmək',desc:'Potensial problemləri vaxtında müəyyən edib rəhbərliyə çatdırmaq'},
-  {id:'m5',name:'Əməkdaşların potensialından istifadə',desc:'Komanda üzvlərinin güclü tərəflərini tanımaq, tapşırıqları buna uyğun paylamaq'},
-  {id:'m6',name:'Problemli əməkdaşlarla işləmək',desc:'Aşağı performanslı əməkdaşlara münasibətdə konstruktiv yanaşma'}
-];
-const CRITERIA_SEKTOR=[
-  {id:'s1',name:'İş bölgüsü və gündəlik koordinasiya',desc:'Sektor əməkdaşları arasında tapşırıqların düzgün bölüşdürülməsi'},
-  {id:'s2',name:'Nəzarət və nəticənin formalaşdırılması',desc:'Tapşırıqların icrasına nəzarət, sənədlərin ilkin yoxlanılması'},
-  {id:'s3',name:'Əməkdaşların yönləndirilməsi',desc:'Zəif və ya təcrübəsiz əməkdaşlara izah, dəstək və istiqamət vermə'},
-  {id:'s4',name:'Sektor üzrə icra intizamı',desc:'Sektora daxil olan tapşırıqların vaxtında və keyfiyyətli icrası'},
-  {id:'s5',name:'Problem və riskləri vaxtında bildirmə',desc:'Gecikmə və ya keyfiyyət problemlərini rəhbərliyə vaxtında çatdırma'}
-];
-
-function getCriteriaFor(role){
-  const base=CRITERIA_UMUMI.map(c=>({...c,group:'Ümumi meyarlar'}));
-  if(role==='muavin') return [...base,...CRITERIA_MUAVIN.map(c=>({...c,group:'Rəhbərlik meyarları — müdir müavini'}))];
-  if(role==='sektor') return [...base,...CRITERIA_SEKTOR.map(c=>({...c,group:'Rəhbərlik meyarları — sektor müdiri'}))];
-  return base;
-}
-
-// ─── STATE ──────────────────────────────────────────────────────
-const DEFAULT_WORKERS=[
-  {id:'w01',name:'EQ',role:'mudir',sector:'rehberlik'},
-  {id:'w02',name:'EƏ',role:'muavin',sector:'rehberlik'},
-  {id:'w03',name:'KM',role:'muavin',sector:'rehberlik'},
-  {id:'w04',name:'İİ',role:'sektor',sector:'xidmeti'},
-  {id:'w05',name:'İM',role:'boyuk',sector:'xidmeti'},
-  {id:'w06',name:'NƏ',role:'meslehchi',sector:'xidmeti'},
-  {id:'w07',name:'ŞƏ',role:'sektor',sector:'riskler'},
-  {id:'w08',name:'NM',role:'bash',sector:'riskler'},
-  {id:'w09',name:'KH',role:'boyuk',sector:'riskler'},
-  {id:'w10',name:'MM',role:'aparici',sector:'riskler'},
-  {id:'w11',name:'RQ',role:'sektor',sector:'audit'},
-  {id:'w12',name:'ER',role:'bash',sector:'audit'},
-  {id:'w13',name:'MQ',role:'meslehchi',sector:'audit'},
-];
-
-function loadState(){
-  try{
-    const w=localStorage.getItem('qiym_workers');
-    const v=localStorage.getItem('qiym_votes');
-    const s=localStorage.getItem('qiym_submitted');
-    workers=w?JSON.parse(w):[...DEFAULT_WORKERS];
-    votes=v?JSON.parse(v):{};
-    submittedVoters=new Set(s?JSON.parse(s):[]);
-  }catch(e){
-    workers=[...DEFAULT_WORKERS];votes={};submittedVoters=new Set();
-  }
-}
-function saveState(){
-  try{
-    localStorage.setItem('qiym_workers',JSON.stringify(workers));
-    localStorage.setItem('qiym_votes',JSON.stringify(votes));
-    localStorage.setItem('qiym_submitted',JSON.stringify([...submittedVoters]));
-  }catch(e){}
-}
-
-let workers=[];
-let votes={};
-let currentVoter=null;
-let activeCritTab='umumi';
-let submittedVoters=new Set();
-let adminUnlocked=false;
-
-loadState();
-
-// ─── ADMIN AUTH ──────────────────────────────────────────────────
-function adminAuth(){
-  if(adminUnlocked){goPage('admin');return;}
-  document.getElementById('modal-auth').style.display='flex';
-  document.getElementById('admin-pass').value='';
-  document.getElementById('auth-err').style.display='none';
-  setTimeout(()=>document.getElementById('admin-pass').focus(),100);
-}
-function closeAuthModal(e){
-  if(!e||e.target===document.getElementById('modal-auth')){
-    document.getElementById('modal-auth').style.display='none';
-  }
-}
-function checkAdminPass(){
-  const p=document.getElementById('admin-pass').value;
-  if(p===ADMIN_PASS){
-    adminUnlocked=true;
-    document.getElementById('modal-auth').style.display='none';
-    goPage('admin');
-  } else {
-    document.getElementById('auth-err').style.display='block';
-    document.getElementById('admin-pass').value='';
-    document.getElementById('admin-pass').focus();
-  }
-}
-
-// ─── NAVİQASİYA ─────────────────────────────────────────────────
-function goPage(p){
-  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
-  document.getElementById('page-'+p).classList.add('active');
-  window.scrollTo(0,0);
-  if(p==='admin') aTab('workers');
-  if(p==='vote-select') renderVoterGrid();
-}
-
-function aTab(t){
-  ['workers','criteria','weights','links','results'].forEach(x=>{
-    const el=document.getElementById('atab-'+x);
-    if(el) el.style.display=x===t?'block':'none';
-    const tb=document.getElementById('tab-'+x);
-    if(tb) tb.classList.toggle('active',x===t);
-  });
-  if(t==='workers') renderWorkers();
-  if(t==='criteria') renderCriteria(activeCritTab);
-  if(t==='weights') renderWeights();
-  if(t==='links') renderLinks();
-  if(t==='results') renderAdminResults();
-}
-
-function cTab(t){
-  activeCritTab=t;
-  ['umumi','muavin','sektor'].forEach(x=>document.getElementById('ctab-'+x).classList.toggle('active',x===t));
-  renderCriteria(t);
-}
-
-// ─── RENDER FUNKSİYALARI ────────────────────────────────────────
-function av(w){return w.name.slice(0,2);}
-function canBeRated(w){return w.role!=='mudir';}
-function getToRate(voter){return workers.filter(w=>canBeRated(w)&&w.id!==voter.id);}
-
-function renderCriteria(t){
-  const el=document.getElementById('criteria-content');
-  const list=t==='umumi'?CRITERIA_UMUMI:t==='muavin'?CRITERIA_MUAVIN:CRITERIA_SEKTOR;
-  const desc={umumi:'Bütün işçilərə tətbiq olunur — müdir müavinindən adi icraçıya qədər',muavin:'Yalnız müdir müavinlərinə — strateji idarəetmə çərçivəsindən qiymətləndirilir',sektor:'Yalnız sektor müdirlərinə — əməliyyat və koordinasiya çərçivəsindən qiymətləndirilir'}[t];
-  el.innerHTML=`<p style="font-size:12px;color:#6b7280;margin-bottom:1rem">${desc}</p>`
-    +list.map((c,i)=>`<div class="crit-block"><div style="display:flex;gap:10px">
-      <span style="min-width:22px;height:22px;border-radius:50%;background:#EEEDFE;color:#3C3489;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0">${i+1}</span>
-      <div><div style="font-size:13px;font-weight:500;margin-bottom:2px">${c.name}</div>
-      <div style="font-size:12px;color:#6b7280;line-height:1.5">${c.desc}</div></div></div></div>`).join('');
-}
-
-function renderWorkers(){
-  const el=document.getElementById('worker-list');
-  let html='';
-  SECTOR_ORDER.forEach(sec=>{
-    const sw=workers.filter(w=>w.sector===sec);
-    if(!sw.length) return;
-    html+=`<div class="sec-hdr">${SECTOR_LABEL[sec]}</div>`;
-    sw.forEach(w=>{
-      html+=`<div class="worker-row">
-        <div style="display:flex;align-items:center;gap:10px">
-          <div class="avatar">${av(w)}</div>
-          <div>
-            <span style="font-weight:500">${w.name}</span>
-            <span class="badge ${ROLE_BADGE[w.role]}" style="margin-left:6px">${ROLE_LABEL[w.role]}</span>
-            ${!canBeRated(w)?'<span class="badge b-mudir" style="margin-left:4px;background:#fce7f3;color:#9d174d">qiymətləndirilmir</span>':''}
-          </div>
-        </div>
-        <button class="btn btn-sm btn-danger" onclick="removeWorker('${w.id}')">Sil</button>
-      </div>`;
-    });
-  });
-  el.innerHTML=html||'<p style="color:#6b7280;font-size:13px;padding:1rem 0">İşçi siyahısı boşdur</p>';
-}
-
-function addWorker(){
-  const name=document.getElementById('new-name').value.trim();
-  const role=document.getElementById('new-role').value;
-  const sector=document.getElementById('new-sector').value;
-  if(!name) return;
-  workers.push({id:'w'+Date.now(),name,role,sector});
-  document.getElementById('new-name').value='';
-  saveState();
-  renderWorkers();
-}
-function removeWorker(id){
-  if(!confirm('Bu işçini silmək istəyirsiniz?')) return;
-  workers=workers.filter(w=>w.id!==id);
-  saveState();
-  renderWorkers();
-}
-
-function renderWeights(){
-  const el=document.getElementById('weight-rows');
-  const max=Math.max(...Object.values(WEIGHTS));
-  el.innerHTML=Object.entries(WEIGHTS).map(([role,w])=>`
-    <div style="display:flex;align-items:center;gap:12px">
-      <span style="min-width:160px"><span class="badge ${ROLE_BADGE[role]}">${ROLE_LABEL[role]}</span></span>
-      <div class="progress-wrap" style="flex:1"><div class="progress-fill" style="width:${(w/max)*100}%"></div></div>
-      <span style="font-size:12px;font-weight:600;min-width:90px;text-align:right;color:#374151">× ${w} → ${10*w} bal</span>
-    </div>`).join('');
-}
-
-function renderLinks(){
-  const el=document.getElementById('link-list');
-  let html='';
-  SECTOR_ORDER.forEach(sec=>{
-    const sw=workers.filter(w=>w.sector===sec);
-    if(!sw.length) return;
-    html+=`<div class="sec-hdr">${SECTOR_LABEL[sec]}</div>`;
-    sw.forEach(w=>{
-      const rated=canBeRated(w);
-      const link=BASE_URL+'?voter='+w.id;
-      html+=`<div class="card" style="padding:12px 16px">
-        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
-          <div style="display:flex;align-items:center;gap:10px">
-            <div class="avatar">${av(w)}</div>
-            <div>
-              <span style="font-weight:500">${w.name}</span>
-              <span class="badge ${ROLE_BADGE[w.role]}" style="margin-left:5px">${ROLE_LABEL[w.role]}</span>
-              <span class="badge" style="margin-left:4px;background:#dcfce7;color:#166534">qiymətləndirir</span>
-              ${rated
-                ?'<span class="badge" style="margin-left:4px;background:#dbeafe;color:#1e40af">qiymətləndirilir</span>'
-                :'<span class="badge" style="margin-left:4px;background:#fce7f3;color:#9d174d">qiymətləndirilmir</span>'}
-            </div>
-          </div>
-          <div class="link-row">
-            <code style="font-size:10px;color:#6b7280;background:#f3f4f6;padding:3px 8px;border-radius:5px;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${link}">?voter=${w.id}</code>
-            <button class="btn btn-sm" onclick="copyLink('${link}','copy-${w.id}')">Kopyala</button>
-            <span id="copy-${w.id}" class="copy-badge">✓ kopyalandı</span>
-            <button class="btn btn-sm" onclick="selectVoter('${w.id}')">Test ↗</button>
-          </div>
-        </div>
-      </div>`;
-    });
-  });
-  el.innerHTML=html;
-}
-
-function copyLink(link,badgeId){
-  navigator.clipboard.writeText(link).then(()=>{
-    const b=document.getElementById(badgeId);
-    if(b){b.style.display='inline';setTimeout(()=>b.style.display='none',2000);}
-  }).catch(()=>prompt('Linki kopyalayın:',link));
-}
-
-function renderVoterGrid(){
-  const el=document.getElementById('voter-grid');
-  let html='';
-  SECTOR_ORDER.forEach(sec=>{
-    const sw=workers.filter(w=>w.sector===sec);
-    if(!sw.length) return;
-    html+=`<div style="grid-column:1/-1"><div class="sec-hdr">${SECTOR_LABEL[sec]}</div></div>`;
-    sw.forEach(w=>{
-      const done=submittedVoters.has(w.id);
-      html+=`<button class="voter-btn${done?' done':''}" onclick="selectVoter('${w.id}')">
-        <div style="display:flex;align-items:center;gap:10px">
-          <div class="avatar" style="${done?'background:#dcfce7;color:#166534':''}">
-            ${done?'✓':av(w)}
-          </div>
-          <div style="text-align:left">
-            <div style="font-weight:500;font-size:13px">${w.name}${done?' <span style="font-size:10px;color:#16a34a;font-weight:400">göndərildi</span>':''}</div>
-            <span class="badge ${ROLE_BADGE[w.role]}" style="font-size:10px">${ROLE_LABEL[w.role]}</span>
-          </div>
-        </div>
-      </button>`;
-    });
-  });
-  el.innerHTML=html;
-}
-
-function selectVoter(id){
-  currentVoter=workers.find(w=>w.id===id);
-  if(!currentVoter) return;
-
-  document.getElementById('v-name').textContent=currentVoter.name;
-  document.getElementById('v-avatar').textContent=av(currentVoter);
-  const rb=document.getElementById('v-role');
-  rb.textContent=ROLE_LABEL[currentVoter.role];
-  rb.className='badge '+ROLE_BADGE[currentVoter.role];
-  document.getElementById('v-sector').textContent=SECTOR_LABEL[currentVoter.sector]||'';
-
-  const toRate=getToRate(currentVoter);
-  let html='';
-  toRate.forEach(w=>{
-    const crits=getCriteriaFor(w.role);
-    let lastGroup='';
-    html+=`<div class="card">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid #f3f4f6">
-        <div class="avatar">${av(w)}</div>
-        <div>
-          <span style="font-weight:600">${w.name}</span>
-          <span class="badge ${ROLE_BADGE[w.role]}" style="margin-left:6px">${ROLE_LABEL[w.role]}</span>
-          <span style="font-size:11px;color:#9ca3af;margin-left:6px">${SECTOR_LABEL[w.sector]||''}</span>
-        </div>
-      </div>`;
-    crits.forEach(c=>{
-      if(c.group!==lastGroup){
-        html+=`<div class="crit-group-label">${c.group}</div>`;
-        lastGroup=c.group;
-      }
-      html+=`<div style="margin-bottom:16px">
-        <div style="font-size:13px;font-weight:500;margin-bottom:2px">${c.name}</div>
-        <div style="font-size:11px;color:#6b7280;margin-bottom:8px;line-height:1.5">${c.desc}</div>
-        <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap" id="stars-${w.id}-${c.id}">
-          ${[1,2,3,4,5,6,7,8,9,10].map(i=>`<span class="star" onclick="setStar('${w.id}','${c.id}',${i})" data-val="${i}">★</span>`).join('')}
-          <span style="font-size:12px;color:#9ca3af;margin-left:8px" id="sl-${w.id}-${c.id}">—</span>
-        </div>
-      </div>`;
-    });
-    html+='</div>';
-  });
-  document.getElementById('vote-form').innerHTML=html;
-  goPage('vote');
-}
-
-function setStar(wid,cid,val){
-  const row=document.getElementById(`stars-${wid}-${cid}`);
-  if(!row) return;
-  row.querySelectorAll('.star').forEach(s=>s.classList.toggle('on',+s.dataset.val<=val));
-  row.dataset.val=val;
-  const lbl=document.getElementById(`sl-${wid}-${cid}`);
-  if(lbl) lbl.textContent=val+'/10';
-}
-
-function submitVotes(){
-  if(!currentVoter) return;
-  const toRate=getToRate(currentVoter);
-  let allSet=true;
-  toRate.forEach(w=>{
-    getCriteriaFor(w.role).forEach(c=>{
-      const row=document.getElementById(`stars-${w.id}-${c.id}`);
-      if(!row||!+row.dataset.val) allSet=false;
-    });
-  });
-  if(!allSet){alert('Zəhmət olmasa bütün meyarlar üzrə qiymət verin');return;}
-
-  toRate.forEach(w=>{
-    if(!votes[w.id]) votes[w.id]=[];
-    const sc={};
-    getCriteriaFor(w.role).forEach(c=>{
-      const row=document.getElementById(`stars-${w.id}-${c.id}`);
-      sc[c.id]=+row.dataset.val;
-    });
-    // Konfidensiallıq: voterin adını deyil, yalnız rolunu saxlayırıq
-    votes[w.id].push({role:currentVoter.role,scores:sc});
-  });
-
-  submittedVoters.add(currentVoter.id);
-  saveState();
-
-  const voterName=currentVoter.name;
-  const done=submittedVoters.size;
-  const total=workers.length;
-  currentVoter=null;
-
-  document.getElementById('vote-form').innerHTML=`
-    <div class="alert-ok" style="margin-bottom:1rem">✓ <strong>${voterName}</strong> adından bütün qiymətlər qəbul edildi.</div>
-    <p style="font-size:13px;color:#6b7280;margin-bottom:1.25rem">${done} / ${total} işçi qiymətləndirib</p>
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn" onclick="goPage('vote-select')">← Başqa birini seç</button>
-      <button class="btn" onclick="goPage('landing')">Ana səhifə</button>
-    </div>`;
-}
-
-// ─── ADMIN NƏTİCƏLƏRİ ───────────────────────────────────────────
-function calcScores(){
-  return workers.filter(w=>canBeRated(w)).map(w=>{
-    const arr=votes[w.id]||[];
-    let wSum=0,wMax=0;
-    arr.forEach(v=>{
-      const wt=WEIGHTS[v.role]||1;
-      getCriteriaFor(w.role).forEach(c=>{
-        wSum+=(v.scores[c.id]||0)*wt;
-        wMax+=10*wt;
-      });
-    });
-    const pct=wMax?Math.round((wSum/wMax)*100):0;
-    return {...w,wSum:Math.round(wSum*10)/10,wMax:Math.round(wMax*10)/10,pct,count:arr.length};
-  });
-}
-
-function renderAdminResults(){
-  const allScored=calcScores();
-  const totalVotes=Object.values(votes).reduce((s,a)=>s+a.length,0);
-  const voterCount=submittedVoters.size;
-  const el=document.getElementById('admin-results-content');
-
-  let html=`
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:8px">
-      <div>
-        <h2 style="font-size:16px;font-weight:600">Nəticələr</h2>
-        <p style="font-size:12px;color:#6b7280;margin-top:2px">${voterCount} / ${workers.length} nəfər qiymətləndirib</p>
-      </div>
-      <button class="btn btn-sm btn-danger" onclick="clearVotes()">↺ Sıfırla</button>
-    </div>
-    <div class="grid-4" style="margin-bottom:1.5rem">
-      <div class="stat-card"><div class="stat-num">${workers.length}</div><div class="stat-label">Ümumi işçi</div></div>
-      <div class="stat-card"><div class="stat-num">${voterCount}</div><div class="stat-label">Qiymətləndirən</div></div>
-      <div class="stat-card"><div class="stat-num">${allScored.length}</div><div class="stat-label">Qiymətləndirilən</div></div>
-      <div class="stat-card"><div class="stat-num">${totalVotes}</div><div class="stat-label">Verilmiş qiymət</div></div>
-    </div>`;
-
-  if(totalVotes===0){
-    html+='<p style="font-size:13px;color:#6b7280;padding:1rem 0">Hələ qiymət verilməyib.</p>';
-    el.innerHTML=html;return;
-  }
-
-  SECTOR_ORDER.forEach(sec=>{
-    const sw=allScored.filter(w=>w.sector===sec);
-    if(!sw.length) return;
-    const sorted=[...sw].sort((a,b)=>b.wSum-a.wSum);
-    html+=`<div class="sec-hdr">${SECTOR_LABEL[sec]}</div>`;
-    sorted.forEach((w,i)=>{
-      const noV=w.count===0;
-      html+=`<div class="card">
-        <div style="display:flex;align-items:center;justify-content:space-between;${noV?'':'margin-bottom:10px'}">
-          <div style="display:flex;align-items:center;gap:10px">
-            <div style="width:28px;height:28px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#3C3489">${i+1}</div>
-            <div>
-              <span style="font-weight:600">${w.name}</span>
-              <span class="badge ${ROLE_BADGE[w.role]}" style="margin-left:6px">${ROLE_LABEL[w.role]}</span>
-            </div>
-          </div>
-          <div style="text-align:right">
-            ${noV
-              ?'<span style="font-size:12px;color:#9ca3af">hələ qiymət yoxdur</span>'
-              :`<div style="font-size:20px;font-weight:700;color:#534AB7">${w.wSum} <span style="font-size:12px;font-weight:400;color:#9ca3af">/ ${w.wMax}</span></div>
-               <div style="font-size:11px;color:#6b7280">${w.count} qiymətləndirmə · ${w.pct}%</div>`
-            }
-          </div>
-        </div>
-        ${noV?'':'<div class="progress-wrap"><div class="progress-fill" style="width:'+w.pct+'%"></div></div>'}
-      </div>`;
-    });
-  });
-  el.innerHTML=html;
-}
-
-function clearVotes(){
-  if(!confirm('Bütün qiymətlər silinəcək. Davam edilsin?')) return;
-  votes={};submittedVoters=new Set();
-  saveState();
-  renderAdminResults();
-}
-
-// ─── URL PARAMETR: ?voter=wXX ────────────────────────────────────
-function checkUrlVoter(){
-  const params=new URLSearchParams(location.search);
-  const vid=params.get('voter');
-  if(vid){
-    const w=workers.find(x=>x.id===vid);
-    if(w){
-      selectVoter(vid);
-      return true;
-    }
-  }
-  return false;
-}
-
-// ─── İLK AÇILIŞ ─────────────────────────────────────────────────
-if(!checkUrlVoter()){
-  goPage('landing');
-}
-</script>
+<script type="module" src="app.js"></script>
 </body>
 </html>
